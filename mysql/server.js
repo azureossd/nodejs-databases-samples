@@ -3,16 +3,18 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
+const fs = require('fs');
 
 var mysql = require('mysql');
 var con = mysql.createConnection({
-    host     : '****.mysql.database.azure.com',
-    user     : 'support@databaseserver',
-    password : '************',
-    database : 'demo'
+    host     : '*******.mysql.database.azure.com',
+    user     : 'support@databasename',
+    password : '*******',
+    database : 'demo',
+    //ssl  : { //For SSL connections with Azure Database for MySQL check this documentation: https://docs.microsoft.com/en-us/azure/mysql/concepts-ssl-connection-security  
+      //ca : fs.readFileSync(__dirname + '/ca-certificates/BaltimoreCyberTrustRoot.crt.pem')
+    //}
   });
-
-//For SSL connections with Azure Database for MySQL check this documentation: https://docs.microsoft.com/en-us/azure/mysql/concepts-ssl-connection-security  
 
 app.get('/', function (req, res) {    
   con.connect(function(err) {
