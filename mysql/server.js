@@ -7,10 +7,10 @@ const fs = require('fs');
 
 var mysql = require('mysql');
 var con = mysql.createConnection({
-    host     : '*******.mysql.database.azure.com',
-    user     : 'support@databasename',
-    password : '*******',
-    database : 'demo',
+    host     : 'server.mysql.database.azure.com',
+    user     : 'user@databasename',
+    password : 'password',
+    database : 'database',
     //ssl  : { //For SSL connections with Azure Database for MySQL check this documentation: https://docs.microsoft.com/en-us/azure/mysql/concepts-ssl-connection-security  
       //ca : fs.readFileSync(__dirname + '/ca-certificates/BaltimoreCyberTrustRoot.crt.pem')
     //}

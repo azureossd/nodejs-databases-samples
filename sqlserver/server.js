@@ -6,10 +6,10 @@ const sql = require('mssql')
 const port = process.env.PORT || 3000;
 
 const config = {
-    server: '*****.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
-    database: 'databasename',
-    user: 'support',
-    password: '*******',
+    server: 'server.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
+    database: 'database',
+    user: 'user',
+    password: 'password',
     options: {
         enableArithAbort: true,
         encrypt: true, // If you are Windows Azure use true
