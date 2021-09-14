@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-with-sqlserver",
+  "name": "nodejs-with-mongodb",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mssql": "^6.2.0"
+    "mongoose": "^6.0.5"
   }
 }

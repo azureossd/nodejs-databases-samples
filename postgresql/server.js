@@ -37,6 +37,7 @@ async function CreateTable() {
         const res = await client.query(query);
 
         messages.push('Table created');
+        console.log('Table created');
 
     } catch (err) {
         console.error(err);
@@ -52,6 +53,7 @@ async function QueryRow() {
         const res = await client.query(query);
         const rows = res.rows; 
         messages.push(`Querying from Table and selecting user ${ JSON.stringify(rows[0]) }`);
+        console.log(`Querying from Table and selecting user ${ JSON.stringify(rows[0]) }`);
     } catch (err) {
         console.error(err);
     }
@@ -68,6 +70,7 @@ async function QueryAllRows() {
         rows.map(row => {
             messages.push(`---- Reading User: ${JSON.stringify(row)}`);
         });
+        console.log('Quering all users');
     } catch (err) {
         console.log(err.stack)
     }
@@ -79,6 +82,7 @@ async function InsertRow() {
         const client = await pool.connect();
         const res = await client.query(query);
         messages.push('Adding a new user');
+        console.log('Adding a new user');
     } catch (err) {
         console.log(err.stack)
     }
@@ -90,6 +94,7 @@ async function UpdateRow() {
         const client = await pool.connect();
         const res = await client.query(query);
         messages.push('Updating LastName on user');
+        console.log('Updating LastName on user');
     } catch (err) {
         console.log(err.stack)
     }
@@ -102,6 +107,7 @@ async function DeleteRow() {
         const client = await pool.connect();
         const res = await client.query(query);
         messages.push('Deleting user');
+        console.log('Deleting user');
     } catch (err) {
         console.log(err.stack)
     }
@@ -113,6 +119,7 @@ async function DeleteTable() {
         const client = await pool.connect();
         const res = await client.query(query);
         messages.push('Dropping table');
+        console.log('Dropping table');
     } catch (err) {
         console.log(err.stack)
     }
