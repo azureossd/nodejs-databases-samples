@@ -73,6 +73,7 @@
 
 ## Creating Express REST API
 1. Type **`npm init`** and follow all steps, use `server.js` as entry point.
+2. Install required node pagackes with **`npm install express mongoose --save`**.
 2. Create a **server.js** with the following content (if you changed the user/password then update with the new values):
     ```
         const express = require('express');
