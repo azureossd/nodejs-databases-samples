@@ -13,23 +13,23 @@
 3. Cd into your application folder and create a **`docker-compose.yml`** file with the following content:
 
     ```
-        version: "3.8"
-        services:
-                mongodb:
-                        image: mongo:4.2.16-bionic
-                        container_name: mongodb
-                        restart: unless-stopped
-                        command: mongod --auth
-                        ports:
-                                - 27017:27017
-                        environment:
-                                MONGO_INITDB_ROOT_USERNAME: admin
-                                MONGO_INITDB_ROOT_PASSWORD: password
-                                MONGO_INITDB_DATABASE: admin
-                                MONGODB_DATA_DIR: /data/db
-                        volumes:
-                                - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-                                - c:/db:/data/db
+    version: "3.8"
+    services:
+    mongodb:
+        image: mongo:4.2.16-bionic
+        container_name: mongodb
+        restart: unless-stopped
+        command: mongod --auth
+        ports:
+        - 27017:27017
+        environment:
+        MONGO_INITDB_ROOT_USERNAME: admin
+        MONGO_INITDB_ROOT_PASSWORD: password
+        MONGO_INITDB_DATABASE: admin
+        MONGODB_DATA_DIR: /data/db
+        volumes:
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+            - c:/db:/data/db
     ```
     >Note: You can change the user and password for admin user, just update the mongo-init.js file.
 
@@ -37,22 +37,30 @@
 
 4. Create a new file called **`mongo-init.js`** with the following content:
     ```
-        db.auth('admin', 'password')
+    db.auth('admin', 'password')
 
-        db = db.getSiblingDB('dbsample')
+    db = db.getSiblingDB('dbsample')
 
-        db.createUser(
-            {
-                user: "mongouser",
-                pwd: "password",
-                roles: [
-                    {
-                        role: "readWrite",
-                        db: "dbsample"
-                    }
-                ]
-            }
-        );
+    db.createUser(
+        {
+            user: "mongouser",
+            pwd: "password",
+            roles: [
+                {
+                    role: "readWrite",
+                    db: "dbsample"
+                }
+            ]
+        }
+    );
+
+    db.createCollection('users');
+
+    db.users.insert(
+    {
+        first_name: 'firstname',
+        last_name: 'lastname'
+    });
     ```
     >Note: You can change the user and password for the app user, you need to update code.
 

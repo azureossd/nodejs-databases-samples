@@ -14,3 +14,11 @@ db.createUser(
         ]
     }
 );
+
+db.createCollection('users');
+
+db.users.insert(
+ {
+    first_name: 'firstname',
+    last_name: 'lastname'
+  });
