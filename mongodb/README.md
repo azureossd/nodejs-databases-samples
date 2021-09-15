@@ -105,7 +105,7 @@
 
     ```
 
-3. Open a new terminal and cd into the application folder and start the server with **`npm start`** and browse to **`http://localhost:30000`**. (If the connection is not successful you will get an exception.)
+3. Open a new terminal and cd into the application folder and start the server with **`npm start`** and browse to **`http://localhost:3000`**. (If the connection is not successful you will get an exception.)
 4. Create a new folder called **`models`** and add a new file named **`user.js`**, and create the following schema with this content:
     ```
         const mongoose = require("mongoose")
@@ -188,9 +188,9 @@
     ```
         app.use(express.json());
     ```
-8. Start the server with **`npm start`** and browse to **`http://localhost:30000`**.
+8. Start the server with **`npm start`** and browse to **`http://localhost:3000`**.
 9. You can use postman or curl to test this application. Here is an example for POST
-   - If you have curl use the following command: 
+   - If you have curl use the following command in cmd: 
         ```
-        curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{\"first_name\":\"RandomFirstName\",\"last_name\":\"RandomLastName\"}'
+        curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"first_name\":\"RandomFirstName\",\"last_name\":\"RandomLastName\"}"
         ```
