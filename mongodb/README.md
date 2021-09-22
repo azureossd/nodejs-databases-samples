@@ -15,21 +15,21 @@
     ```
     version: "3.8"
     services:
-    mongodb:
-        image: mongo:4.2.16-bionic
-        container_name: mongodb
-        restart: unless-stopped
-        command: mongod --auth
-        ports:
-            - 27017:27017
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: admin
-            MONGO_INITDB_ROOT_PASSWORD: password
-            MONGO_INITDB_DATABASE: admin
-            MONGODB_DATA_DIR: /data/db
-        volumes:
-            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-            - c:/db:/data/db
+        mongodb:
+            image: mongo:4.2.16-bionic
+            container_name: mongodb
+            restart: unless-stopped
+            command: mongod --auth
+            ports:
+                - 27017:27017
+            environment:
+                MONGO_INITDB_ROOT_USERNAME: admin
+                MONGO_INITDB_ROOT_PASSWORD: password
+                MONGO_INITDB_DATABASE: admin
+                MONGODB_DATA_DIR: /data/db
+            volumes:
+                - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+                - c:/db:/data/db
     ```
     >Note: You can change the user and password for admin user, just update the mongo-init.js file.
 
