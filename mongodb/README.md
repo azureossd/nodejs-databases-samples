@@ -23,10 +23,10 @@
         ports:
         - 27017:27017
         environment:
-        MONGO_INITDB_ROOT_USERNAME: admin
-        MONGO_INITDB_ROOT_PASSWORD: password
-        MONGO_INITDB_DATABASE: admin
-        MONGODB_DATA_DIR: /data/db
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: password
+            MONGO_INITDB_DATABASE: admin
+            MONGODB_DATA_DIR: /data/db
         volumes:
             - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
             - c:/db:/data/db
