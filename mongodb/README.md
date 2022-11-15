@@ -185,7 +185,7 @@
         });
     ```
 7. Finally add a built-in middleware function, which parses incoming requests with JSON payloads and is based on body-parser. Add it after the const variables in the top.
-    ```
+    ```javascript
         app.use(express.json());
     ```
 8. Start the server with **`npm start`** and browse to **`http://localhost:3000`**.
