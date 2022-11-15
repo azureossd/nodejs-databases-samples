@@ -12,7 +12,7 @@
 2. Then create another folder directory for your application (any location). 
 3. Cd into your application folder and create a **`docker-compose.yml`** file with the following content:
 
-    ```
+    ```yaml
     version: "3.8"
     services:
         mongodb:
@@ -36,7 +36,7 @@
     This file will create a MongoDb Docker container with admin user and password pointing to admin database, it will map two volumes, one for c:/db folder to /data/db (If you are using Linux you might need to change this directory) and another one for a init script to create a database and app user.
 
 4. Create a new file called **`mongo-init.js`** with the following content:
-    ```
+    ```javascript
     db.auth('admin', 'password')
 
     db = db.getSiblingDB('dbsample')
@@ -75,7 +75,7 @@
 1. Type **`npm init`** and follow all steps, use `server.js` as entry point.
 2. Install required node pagackes with **`npm install express mongoose --save`**.
 2. Create a **server.js** with the following content (if you changed the user/password then update with the new values):
-    ```
+    ```javascript
         const express = require('express');
         const app = express();
         const mongoose = require('mongoose');
@@ -107,7 +107,7 @@
 
 3. Open a new terminal and cd into the application folder and start the server with **`npm start`** and browse to **`http://localhost:3000`**. (If the connection is not successful you will get an exception.)
 4. Create a new folder called **`models`** and add a new file named **`user.js`**, and create the following schema with this content:
-    ```
+    ```javascript
         const mongoose = require("mongoose")
 
         const schema = mongoose.Schema({
@@ -118,11 +118,11 @@
         module.exports = mongoose.model("User", schema)
     ```
 5. Import the module in `server.js` with:
-    ```
+    ```javascript
         const User = require('./models/user');
     ```
 6. Add the following routes for CRUD operations. 
-    ```
+    ```javascript
         app.get("/users", async (req, res) => {
             try{
                 const users = await User.find();
