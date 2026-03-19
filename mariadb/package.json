@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1",
-    "mariadb": "^2.4.0"
+    "mariadb": "^3.5.2"
   }
 }
